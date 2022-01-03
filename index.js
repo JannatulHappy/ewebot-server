@@ -30,8 +30,8 @@ client.connect((err) => {
   const professionalsCollection = client.db("Ewebot").collection("professionals");
 
   console.log("database connected");
-  // get all collections
 
+  // getting all professionals
   app.get("/professionals", async (req, res) => {
     const result = await professionalsCollection.find({}).toArray();
     res.send(result);
@@ -92,6 +92,12 @@ client.connect((err) => {
   //add  review
   app.post("/addReview", async (req, res) => {
     const result = await reviewsCollection.insertOne(req.body);
+
+    res.send(result);
+  });
+  //add professional
+  app.post("/addProfessional", async (req, res) => {
+    const result = await professionalsCollection.insertOne(req.body);
 
     res.send(result);
   });
