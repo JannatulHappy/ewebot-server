@@ -27,12 +27,13 @@ client.connect((err) => {
   const ordersCollection = client.db("Ewebot").collection("orders");
   const reviewsCollection = client.db("Ewebot").collection("reviews");
   const appointmentsCollection = client.db("Ewebot").collection("appointments");
+  const professionalsCollection = client.db("Ewebot").collection("professionals");
 
   console.log("database connected");
   // get all collections
 
-  app.get("/allServices", async (req, res) => {
-    const result = await servicesCollection.find({}).toArray();
+  app.get("/professionals", async (req, res) => {
+    const result = await professionalsCollection.find({}).toArray();
     res.send(result);
   });
   // get single  collection
