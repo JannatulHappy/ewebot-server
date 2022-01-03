@@ -36,9 +36,9 @@ client.connect((err) => {
     const result = await professionalsCollection.find({}).toArray();
     res.send(result);
   });
-  // get single  collection
+  // get single  professional
 
-  app.get("/singleCollection/:id", async (req, res) => {
+  app.get("/singleProfessional/:id", async (req, res) => {
     const result = await servicesCollection
       .find({ _id: ObjectId(req.params.id) })
       .toArray();
