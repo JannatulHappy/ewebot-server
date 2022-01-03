@@ -98,8 +98,27 @@ client.connect((err) => {
   //add professional
   app.post("/addProfessional", async (req, res) => {
     const result = await professionalsCollection.insertOne(req.body);
-
+console.log(result)
     res.send(result);
+  });
+   // get all appointments
+   app.get("/appointments", async (req, res) => {
+      
+    const email = req.query.email;
+    const date = new Date(req.query.date).toLocaleDateString();
+
+    const query = { email: email, date: date };
+
+    const cursor = appointmentsCollection.find(query);
+    const appointments = await cursor.toArray();
+    res.json(appointments);
+  });
+  // post each appointment
+  app.post("/appointments", async (req, res) => {
+    const appointment = req.body;
+    const result = await appointmentsCollection.insertOne(appointment);
+    console.log(result);
+    res.json(result);
   });
  
   //get  my order by using email query
