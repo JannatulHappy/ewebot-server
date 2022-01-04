@@ -146,13 +146,13 @@ console.log(result)
     const result = await appointmentsCollection.find({}).toArray();
     res.send(result);
   });
-  // update status to shipped
-  app.put("/approveBooking/:id", async (req, res) => {
+  // update status to done
+  app.put("/appointmentUpdateFromPending/:id", async (req, res) => {
     const id = req.params.id;
     const query = { _id: ObjectId(id) };
     const Booking = {
       $set: {
-        status: "Shipped",
+        status: "Done",
       },
     };
     const result = await ordersCollection.updateOne(query, Booking);
