@@ -135,7 +135,7 @@ console.log(result)
   // delete an order from my order
 
   app.delete("/deleteOrder/:id", async (req, res) => {
-    const result = await ordersCollection.deleteOne({
+    const result = await appointmentsCollection.deleteOne({
       _id: ObjectId(req.params.id),
     });
     res.send(result);
