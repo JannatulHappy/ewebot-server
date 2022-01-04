@@ -141,9 +141,9 @@ console.log(result)
     res.send(result);
   });
    /// all order
-   app.get("/allOrders", async (req, res) => {
+   app.get("/allAppointments", async (req, res) => {
     
-    const result = await ordersCollection.find({}).toArray();
+    const result = await appointmentsCollection.find({}).toArray();
     res.send(result);
   });
   // update status to shipped
@@ -159,9 +159,9 @@ console.log(result)
     res.json(result);
   });
  
-   // delete booking from manage booking
-   app.delete("/DeleteManageBooking/:id", async (req, res) => {
-    const result = await ordersCollection.deleteOne({
+   // delete appointment from all appointments
+   app.delete("/DeleteFromAllAppointments/:id", async (req, res) => {
+    const result = await appointmentsCollection.deleteOne({
       _id: ObjectId(req.params.id),
     });
     res.send(result);
