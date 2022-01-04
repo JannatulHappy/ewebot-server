@@ -155,7 +155,7 @@ console.log(result)
         status: "Done",
       },
     };
-    const result = await ordersCollection.updateOne(query, Booking);
+    const result = await appointmentsCollection.updateOne(query, Booking);
     res.json(result);
   });
  
