@@ -158,7 +158,7 @@ console.log(result)
     const result = await appointmentsCollection.updateOne(query, Booking);
     res.json(result);
   });
- 
+//  repo changed
    // delete appointment from all appointments
    app.delete("/DeleteFromAllAppointments/:id", async (req, res) => {
     const result = await appointmentsCollection.deleteOne({
